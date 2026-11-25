@@ -1,0 +1,283 @@
+
+JAVA PROGRAMS
+
+1. SUM OF INTEGERS USING COMMAND LINE ARGUMENTS
+
+import java.util.Scanner;
+
+public class SumArguments {
+    public static void main(String[] args) {
+        int sum = 0;
+
+        for (int i = 0; i < args.length; i++) {
+            sum += Integer.parseInt(args[i]);
+        }
+
+        System.out.println("Sum = " + sum);
+    }
+}
+
+
+2. FACTORIAL OF A GIVEN NUMBER
+
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+
+        long factorial = 1;
+
+        for (int i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+
+        System.out.println("Factorial = " + factorial);
+    }
+}
+
+
+3. CONVERT DECIMAL TO BINARY
+
+import java.util.Scanner;
+
+public class DecimalBinary {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter decimal number: ");
+        int number = sc.nextInt();
+
+        String binary = "";
+
+        if (number == 0) {
+            binary = "0";
+        }
+
+        while (number > 0) {
+            binary = (number % 2) + binary;
+            number = number / 2;
+        }
+
+        System.out.println("Binary = " + binary);
+    }
+}
+
+
+4. CHECK WHETHER A NUMBER IS PRIME OR NOT
+
+import java.util.Scanner;
+
+public class PrimeNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+
+        boolean isPrime = true;
+
+        if (number <= 1) {
+            isPrime = false;
+        } else {
+            for (int i = 2; i <= number / i; i++) {
+                if (number % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        if (isPrime) {
+            System.out.println("Prime Number");
+        } else {
+            System.out.println("Not a Prime Number");
+        }
+    }
+}
+
+
+5. SUM OF INTEGERS USING INTERACTIVE INPUT
+
+import java.util.Scanner;
+
+public class InteractiveSum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int count = Integer.parseInt(args[0]);
+        int sum = 0;
+
+        for (int i = 1; i <= count; i++) {
+            System.out.print("Enter number " + i + ": ");
+            int number = sc.nextInt();
+            sum += number;
+        }
+
+        System.out.println("Total Sum = " + sum);
+    }
+}
+
+
+6. STRING AND STRINGBUFFER FUNCTIONS
+
+import java.util.Scanner;
+
+public class StringFunctions {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String text = sc.nextLine();
+
+        StringBuffer buffer = new StringBuffer(text);
+
+        System.out.println("Original String: " + text);
+
+        System.out.print("Enter character position: ");
+        int position = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter new character: ");
+        char character = sc.nextLine().charAt(0);
+
+        buffer.setCharAt(position, character);
+        System.out.println("setCharAt: " + buffer);
+
+        buffer.setLength(5);
+        System.out.println("setLength: " + buffer);
+
+        buffer.append(" Java");
+        System.out.println("append: " + buffer);
+
+        buffer.insert(0, "Hello ");
+        System.out.println("insert: " + buffer);
+
+        System.out.println("concat: " + text.concat(" Programming"));
+
+        System.out.print("Enter another string: ");
+        String secondText = sc.nextLine();
+
+        System.out.println("equals: " + text.equals(secondText));
+    }
+}
+
+
+7. DISTANCE CLASS USING FEET AND INCHES AND THIS POINTER
+
+import java.util.Scanner;
+
+class Distance {
+    int feet;
+    int inches;
+
+    Distance(int feet, int inches) {
+        this.feet = feet;
+        this.inches = inches;
+    }
+
+    void display() {
+        System.out.println("Feet: " + this.feet);
+        System.out.println("Inches: " + this.inches);
+    }
+}
+
+public class DistanceDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter feet: ");
+        int feet = sc.nextInt();
+
+        System.out.print("Enter inches: ");
+        int inches = sc.nextInt();
+
+        Distance distance = new Distance(feet, inches);
+
+        distance.display();
+    }
+}
+
+
+8. FUNCTION OVERLOADING WITH AUTOMATIC TYPE CONVERSION
+
+import java.util.Scanner;
+
+public class Overloading {
+    void display(int number) {
+        System.out.println("Integer: " + number);
+    }
+
+    void display(double number) {
+        System.out.println("Double: " + number);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Overloading obj = new Overloading();
+
+        System.out.print("Enter a character: ");
+        char character = sc.next().charAt(0);
+
+        obj.display(character);
+    }
+}
+
+
+9. STATIC FUNCTION AND VARIABLE LENGTH ARGUMENTS
+
+import java.util.Scanner;
+
+public class StaticVarargs {
+    static int sum(int... numbers) {
+        int total = 0;
+
+        for (int number : numbers) {
+            total += number;
+        }
+
+        return total;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("How many numbers? ");
+        int count = sc.nextInt();
+
+        int[] numbers = new int[count];
+
+        for (int i = 0; i < count; i++) {
+            System.out.print("Enter number: ");
+            numbers[i] = sc.nextInt();
+        }
+
+        System.out.println("Sum = " + sum(numbers));
+    }
+}
+
+
+10. BOXING AND UNBOXING
+
+import java.util.Scanner;
+
+public class BoxingUnboxing {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter an integer: ");
+        int number = sc.nextInt();
+
+        Integer object = number;
+
+        System.out.println("Boxing: " + object);
+
+        int value = object;
+
+        System.out.println("Unboxing: " + value);
+    }
+}
